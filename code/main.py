@@ -3,7 +3,8 @@ import utils
 from world import cprint
 import torch
 import numpy as np
-from tensorboardX import SummaryWriter
+from torch.utils.tensorboard import SummaryWriter
+
 import time
 import Procedure
 from os.path import join
@@ -31,8 +32,8 @@ Neg_k = 1
 # init tensorboard
 if world.tensorboard:
     w : SummaryWriter = SummaryWriter(
-                                    join(world.BOARD_PATH, time.strftime("%m-%d-%Hh%Mm%Ss-") + "-" + world.comment)
-                                    )
+            join(world.BOARD_PATH, time.strftime("%m-%d-%Hh%Mm%Ss-") + "-" + world.comment)
+        )
 else:
     w = None
     world.cprint("not enable tensorflowboard")
